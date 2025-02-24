@@ -1,0 +1,20 @@
+package com.kanban.kanban_project.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class WelcomeController {
+
+    private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
+
+    @GetMapping("/")
+    public String home(Model model) {
+        logger.info("Home Controller Invoked! Rendering index.html...");
+        model.addAttribute("message", "Hello from Kanban!");
+        return "index"; // Ensure index.html is in templates
+    }
+}
